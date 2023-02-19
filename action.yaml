@@ -1,0 +1,16 @@
+# action.yml
+name: 'firebase-tools CLI action'
+description: 'firebase-tools CLI action'
+inputs:
+  firebase-tools-options:  # id of input
+    description: 'firebase-tools command line options'
+    required: true
+    default: '--version'
+outputs:
+  response: # id of output
+    description: 'Response from the firebase command executed'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.firebase-tools-options }}
